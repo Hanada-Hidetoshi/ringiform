@@ -10,23 +10,25 @@ if(preg_match('/change/',$subject)){
     $file = $_SESSION['userfile'];
     $tmp = $file['tmp_name'];
     $filename = $file['name'];
-    $uploadfile = 'uploadfile/'.$filename;
   }
   $dbc = new Dbc();
   $dbc ->tablename = 'ringi_info';
-  $dbc ->datachange($uploadfile);
-  //登録時の画面描画
-} else {
+  $dbc ->datachange($filename);
+}elseif(preg_match('/status/',$subject)){//ステータス変更時の画面描画
+  $dbaction = 2;
+  $dbc = new Dbc();
+  $dbc ->tablename = 'ringi_info';
+  $dbc ->statuschange($_POST['status']);
+}else {//登録時の画面描画
   if(isset($_SESSION['userfile']['tmp_name'])){
     $file = $_SESSION['userfile'];
     $tmp = $file['tmp_name'];
     $filename = $file['name'];
-    $uploadfile = 'uploadfile/'.$filename;
   }
   $dbaction =0;
   $dbc = new Dbc();
   $dbc ->tablename = 'ringi_info';
-  $dbc ->entry($uploadfile);
+  $dbc ->entry($filename);
 }
 ?>
 <!DOCTYPE html>
@@ -40,12 +42,12 @@ if(preg_match('/change/',$subject)){
 <?php if($dbaction === 0){ ?>
     <title>データベース登録完了</title>
   </head>
-  </body>
+  <body>
     <div><h1>データベース登録完了</h1></div>
-    <div></div>
     <div>
-      <h1 class="contact-title">下記内容にて登録完了しました</h1>
       <div>
+      <h1 class="contact-title">下記内容にて登録完了しました</h1>
+        <div>
           <div>
             <label>申請者</label>
             <p><?php echo $_POST['name']; ?><p>
@@ -75,17 +77,17 @@ if(preg_match('/change/',$subject)){
             <?php }?>
           </div>
         </div>
+      </div>
     </div>
-  </body>
 <?php }elseif($dbaction === 1){?>
     <title>データベース変更完了</title>
   </head>
-  </body>
+  <body>
     <div><h1>データベース変更完了</h1></div>
-    <div></div>
     <div>
-      <h1 class="contact-title">下記内容にて変更完了しました</h1>
       <div>
+      <h1 class="contact-title">下記内容にて変更完了しました</h1>
+        <div>
           <div>
             <label>申請者</label>
             <p><?php echo $_POST['name']; ?><p>
@@ -115,7 +117,63 @@ if(preg_match('/change/',$subject)){
             <?php }?>
           </div>
         </div>
+      </div>
+    </div>
+<?php }elseif($dbaction === 2){?>
+    <title>ステータス変更完了</title>
+  </head>
+  <body>
+    <div><h1>ステータス変更完了</h1></div>
+    <div>
+      <div>
+      <h1 class="contact-title">下記内容にて変更完了しました</h1>
+        <div>
+          <div>
+            <label>申請者</label>
+            <p><?php echo $_POST['name']; ?><p>
+          </div>
+          <div>
+            <label>申請日</label>
+            <p><?php echo $_POST['date']; ?><p>
+          </div>
+          <div>
+            <label>申請部署</label>
+            <p><?php echo $_POST['department']; ?><p>
+          </div>
+          <div>
+            <label>申請タイトル</label>
+            <p><?php echo $_POST['title']; ?><p>
+          </div>
+          <div>
+            <label>申請内容</label>
+            <p><?php echo nl2br($_POST['content']); ?><p>
+          </div>
+          <div>
+            <label>添付ファイル</label>
+            <?php if($_POST['userfilefile']){?>
+            <p><?php echo $_POST['userfilefile']; ?></p>
+            <?php }else{?>
+            <p><?php echo "ファイルの添付はありません"; ?></p>
+            <?php }?>
+          </div>
+          <div>
+            <label>ステータス</label>
+            <p><?php echo $_POST['status']; ?><p>
+          </div>
+        </div>
+      </div>
+    </div>
+<?php }?>
+    <div class="footer">
+      <div class="navi">
+        <ul>
+          <li><a href="database.php">アカウント情報</a></li>
+          <li><a href="ringidata.php">申請済み稟議データ</a></li>
+          <li><a href="shinsei.php">稟議申請フォーム</a></li>
+          <li><a href="login.php">ログイン</a></li>
+          <li><a href="touroku.php">アカウント登録</a></li>
+        </ul>
+      </div>
     </div>
   </body>
-<?php }?>
 </html>

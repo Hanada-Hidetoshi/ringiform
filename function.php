@@ -16,13 +16,23 @@ class Dbc{
     }
     return $dbh;
   }
-  function getdata(){//データベース1件取得
+  function getdata(){//データ1件取得
     $dbh = $this -> dbconnect();
     $sql = 'SELECT * FROM '.$this->tablename.' WHERE id = :id';
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $_GET['id']));
     $result = 0;
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+    $dbh = null;
+  }
+   function getUserdata($loginuser){//ユーザー情報1件取得
+    $dbh = $this -> dbconnect();
+    $sql = 'SELECT * FROM '.$this->tablename.' WHERE name = :name ORDER BY id';
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':name', $loginuser, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
     return $result;
     $dbh = null;
   }

@@ -1,8 +1,20 @@
 <?php
+session_start();
 require_once('function.php');
-$dbc = new Dbc();
-$dbc ->tablename = 'user_info';
-$result = $dbc ->getAlldata();
+if(!isset($_SESSION['user'])){
+  header("Location:login.php");
+  exit;
+}else{
+  if($_SESSION['user']==='スーパーユーザー'){
+    $dbc = new Dbc();
+    $dbc ->tablename = 'user_info';
+    $result = $dbc ->getAlldata();
+  }else{
+    $dbc = new Dbc();
+    $dbc ->tablename = 'user_info';
+    $result = $dbc ->getUserdata($_SESSION['user']);
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,5 +58,16 @@ $result = $dbc ->getAlldata();
       </tr>
       <?php }?>
     </table>
+    <div class="footer">
+      <div class="navi">
+        <ul>
+          <li><a href="database.php">アカウント情報</a></li>
+          <li><a href="ringidata.php">申請済み稟議データ</a></li>
+          <li><a href="shinsei.php">稟議申請フォーム</a></li>
+          <li><a href="login.php">ログイン</a></li>
+          <li><a href="touroku.php">アカウント登録</a></li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

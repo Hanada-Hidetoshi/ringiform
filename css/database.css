@@ -3,7 +3,7 @@ body{
   background: #f7f6f1;
   font-family: 'Lucida Grande', Arial, 'Hiragino Kaku Gothic Pro', Meiryo, 'メイリオ', sans-serif;
 }
-div.header{
+div.header,div.footer{
   background:#fff;
   width:100%;
   height:50px;
