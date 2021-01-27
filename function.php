@@ -2,10 +2,10 @@
 class Dbc{
   public $tablename;
   public function dbconnect(){//データベース接続
-    $host = "mysql1.php.xdomain.ne.jp";
-    $dbname = "hanadax_database";
-    $user = 'hanadax_kanri';
-    $dbpassword = 'YfkekaNByf3b3FZ';
+    $host = '#';
+    $dbname = '#';
+    $user = '#';
+    $dbpassword = '#';
     $dsn = 'mysql:host='.$host.';dbname='.$dbname.';charset=utf8';
     try{
       $dbh = new PDO($dsn, $user, $dbpassword);
