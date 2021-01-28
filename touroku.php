@@ -1,4 +1,8 @@
 <?php
+session_start();
+if($_SESSION['user'] !== ''){
+  $_SESSION['user'] = '';
+}
 require_once('function.php');
 $bom = hex2bin('EFBBBF');
 $results = preg_replace("/^{$bom}/", '', $str);

@@ -25,7 +25,7 @@ if(preg_match('/change/',$subject)){
   $title = '新しい稟議が提出されました';
   $message = '新しい稟議書が提出されました。内容を確認して対応を行ってください。'.\n.'http://hanadax.php.xdomain.jp/samurai/ringidata.php';
   $headers = 'From: from@example.com';
-  mb_send_mail($to, $title, $message, headers);
+  mb_send_mail($to, $title, $message, $headers);
 }
 ?>
 <!DOCTYPE html>
