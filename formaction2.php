@@ -43,11 +43,11 @@ if(preg_match('/change/',$subject)){
     <title>データベース登録完了</title>
   </head>
   <body>
-    <div><h1>データベース登録完了</h1></div>
-    <div>
-      <div>
+    <?php $pagetitle='データベース登録完了'; require_once('header.php');?>
+    <div class="main">
+      <div class="wrapper">
       <h1 class="contact-title">下記内容にて登録完了しました</h1>
-        <div>
+        <div class="container">
           <div>
             <label>申請者</label>
             <p><?php echo $_POST['name']; ?><p>
@@ -83,11 +83,11 @@ if(preg_match('/change/',$subject)){
     <title>データベース変更完了</title>
   </head>
   <body>
-    <div><h1>データベース変更完了</h1></div>
-    <div>
-      <div>
+    <?php $pagetitle='データベース変更完了'; require_once('header.php');?>
+    <div class="main">
+      <div class="wrapper">
       <h1 class="contact-title">下記内容にて変更完了しました</h1>
-        <div>
+        <div class="container">
           <div>
             <label>申請者</label>
             <p><?php echo $_POST['name']; ?><p>
@@ -116,18 +116,15 @@ if(preg_match('/change/',$subject)){
             <p><?php echo "ファイルの添付はありません"; ?></p>
             <?php }?>
           </div>
-        </div>
-      </div>
-    </div>
 <?php }elseif($dbaction === 2){?>
     <title>ステータス変更完了</title>
   </head>
   <body>
-    <div><h1>ステータス変更完了</h1></div>
-    <div>
-      <div>
+    <?php $pagetitle='ステータス変更完了'; require_once('header.php');?>
+    <div class="main">
+      <div class="wrapper">
       <h1 class="contact-title">下記内容にて変更完了しました</h1>
-        <div>
+        <div class="container">
           <div>
             <label>申請者</label>
             <p><?php echo $_POST['name']; ?><p>
@@ -160,19 +157,8 @@ if(preg_match('/change/',$subject)){
             <label>ステータス</label>
             <p><?php echo $_POST['status']; ?><p>
           </div>
-        </div>
-      </div>
-    </div>
 <?php }?>
-    <div class="footer">
-      <div class="navi">
-        <ul>
-          <li><a href="database.php">アカウント情報</a></li>
-          <li><a href="ringidata.php">申請済み稟議データ</a></li>
-          <li><a href="shinsei.php">稟議申請フォーム</a></li>
-          <li><a href="login.php">ログイン</a></li>
-          <li><a href="touroku.php">アカウント登録</a></li>
-        </ul>
+        </div>
       </div>
     </div>
   </body>

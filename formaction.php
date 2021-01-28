@@ -40,64 +40,54 @@ if(preg_match('/change/',$subject)){
     <title>データベース登録完了</title>
   </head>
   <body>
-    <div><h1>データベース登録完了</h1></div>
-    <div>
-      <h1 class="contact-title">下記内容にて登録完了しました</h1>
-      <div>
-        <div>
-          <label>氏名</label>
-          <p><?php echo $_POST['name']; ?><p>
-        </div>
-        <div>
-          <label>メールアドレス</label>
-          <p><?php echo $_POST['mail']; ?><p>
-        </div>
-        <div>
-          <label>ユーザーID</label>
-          <p><?php echo $_POST['user_id']; ?><p>
-        </div>
-        <div>
-          <label>パスワード</label>
-          <p><?php echo $_POST['password']; ?><p>
-        </div>
-      </div>
-    </div>
+    <?php $pagetitle='データベース登録完了'; require_once('header.php');?>
+    <div class="main">
+      <div class="wrapper">
+        <h1 class="contact-title">下記内容にて登録完了しました</h1>
+        <div class="container">
+          <div>
+            <label>氏名</label>
+            <p><?php echo $_POST['name']; ?><p>
+          </div>
+          <div>
+            <label>メールアドレス</label>
+            <p><?php echo $_POST['mail']; ?><p>
+          </div>
+          <div>
+            <label>ユーザーID</label>
+            <p><?php echo $_POST['user_id']; ?><p>
+          </div>
+          <div>
+            <label>パスワード</label>
+            <p><?php echo $_POST['password']; ?><p>
+          </div>
 <?php }elseif($dbaction === 1){?>
     <title>データベース変更完了</title>
   </head>
   <body>
-    <div><h1>データベース変更完了</h1></div>
-    <div>
-      <div>
+    <?php $pagetitle='データベース変更完了'; require_once('header.php');?>
+    <div class="main">
+      <div class="wrapper">
         <h1 class="contact-title">下記内容にて変更完了しました</h1>
-        <div>
-          <label>氏名</label>
-          <p><?php echo $_POST['name']; ?><p>
-        </div>
-        <div>
-          <label>メールアドレス</label>
-          <p><?php echo $_POST['mail']; ?><p>
-        </div>
-        <div>
-          <label>ユーザーID</label>
-          <p><?php echo $_POST['user_id']; ?><p>
-        </div>
-        <div>
-          <label>パスワード</label>
-          <p><?php echo $_POST['password']; ?><p>
-        </div>
-      </div>
-    </div>
+        <div class="container">
+          <div>
+            <label>氏名</label>
+            <p><?php echo $_POST['name']; ?><p>
+          </div>
+          <div>
+            <label>メールアドレス</label>
+            <p><?php echo $_POST['mail']; ?><p>
+          </div>
+          <div>
+            <label>ユーザーID</label>
+            <p><?php echo $_POST['user_id']; ?><p>
+          </div>
+          <div>
+            <label>パスワード</label>
+            <p><?php echo $_POST['password']; ?><p>
+          </div>
 <?php }?>
-    <div class="footer">
-      <div class="navi">
-        <ul>
-          <li><a href="database.php">アカウント情報</a></li>
-          <li><a href="ringidata.php">申請済み稟議データ</a></li>
-          <li><a href="shinsei.php">稟議申請フォーム</a></li>
-          <li><a href="login.php">ログイン</a></li>
-          <li><a href="touroku.php">アカウント登録</a></li>
-        </ul>
+        </div>
       </div>
     </div>
   </body>

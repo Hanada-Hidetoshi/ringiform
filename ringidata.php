@@ -22,23 +22,13 @@ if(!isset($_SESSION['user'])){
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/database.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/ringidata.js"></script>
     <title>登録済みデータ</title>
   </head>
   <body>
-    <header>
-      <div class="header">
-        <h1>登録済みデータ</h1>
-        <div class = "navi">
-          <ul>
-            <li><a href="touroku.php">新規登録</a></li>
-            <li><a href="login.php">ログイン</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
+    <?php $pagetitle='登録済みデータ'; require_once('header.php');?>
     <table>
       <tr>
         <th>申請者</th>
@@ -70,16 +60,5 @@ if(!isset($_SESSION['user'])){
       </tr>
       <?php } ?>
     </table>
-  <div class="footer">
-    <div class="navi">
-      <ul>
-        <li><a href="database.php">アカウント情報</a></li>
-        <li><a href="ringidata.php">申請済み稟議データ</a></li>
-        <li><a href="shinsei.php">稟議申請フォーム</a></li>
-        <li><a href="login.php">ログイン</a></li>
-        <li><a href="touroku.php">アカウント登録</a></li>
-      </ul>
-    </div>
-  </div>
   </body>
 </html>

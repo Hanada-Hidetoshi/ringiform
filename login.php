@@ -1,5 +1,8 @@
 <?php
 session_start();
+if($_SESSION['user'] !== ''){
+  $_SESSION['user'] = '';
+}
 require_once('function.php');
 $bom = hex2bin('EFBBBF');
 $result = preg_replace("/^{$bom}/", '', $str);
@@ -33,7 +36,6 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -45,29 +47,33 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
     <title>ログインページ</title>
   </head>
   <body>
-    <div><h1>ログインページ</h1></div>
-    <div>
-      <form action="login.php" method="post" name="form" id="sendform">
-        <div>
+    <?php $pagetitle='ログイン'; require_once('header.php');?>
+    <div class="main">
+      <div class="wrapper">
+        <form action="login.php" method="post" name="form" id="sendform">
           <div id="errorText">
-          <?php if($loginerror === 1){
-            echo 'ユーザーIDまたはパスワードが間違っています';
-          } ?>
+            <?php if($logout === 1){
+              echo 'ログアウトしました';
+            } ?>
+            <?php if($loginerror === 1){
+              echo 'ユーザーIDまたはパスワードが間違っています';
+            } ?></div>
+          <div class="container">
+            <div>
+              <label>ユーザーID<span class="required">必須</span></label>
+              <input type="text" name="user_id" placeholder="例）taro.yamada" value="<?php echo $user_id; ?>" id="form1">
+            </div>
+            <div>
+              <label>パスワード<span class="required">必須</span></label>
+              <?php if ($error['password'] === 'error'):?>
+                <p style="color:red">※パスワードは8文字以上で入力してください</p>
+              <? endif; ?>
+              <input type="password" name="password" placeholder="8文字以上で入力" value="<?php echo $password; ?>" id="form2">
+            </div>
           </div>
-          <div>
-            <label>ユーザーID<span class="required">必須</span></label>
-            <input type="text" name="user_id" placeholder="例）taro.yamada" value="<?php echo $user_id; ?>" id="form1">
-          </div>
-          <div>
-            <label>パスワード<span class="required">必須</span></label>
-            <?php if ($error['password'] === 'error'):?>
-              <p style="color:red">※パスワードは8文字以上で入力してください</p>
-            <? endif; ?>
-            <input type="password" name="password" placeholder="8文字以上で入力" value="<?php echo $password; ?>" id="form2">
-          </div>
-        </div>
-        <input type="button" onclick="formCheck()" value="ログイン">
-      </form>
+          <input type="button" onclick="formCheck()" value="ログイン">
+        </form>
+      </div>
     </div>
   </body>
 </html>
