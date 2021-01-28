@@ -21,7 +21,7 @@ if(preg_match('/change/',$subject)){
   $dbc = new Dbc();
   $dbc ->tablename = 'user_info';
   $dbc ->entry();
-  $to = 'superuser@l.l';
+  $to = 'hideeuph@icloud.com';
   $title = '新しい稟議が提出されました';
   $message = '新しい稟議書が提出されました。内容を確認して対応を行ってください。'.\n.'http://hanadax.php.xdomain.jp/samurai/ringidata.php';
   $headers = 'From: from@example.com';
@@ -43,24 +43,25 @@ if(preg_match('/change/',$subject)){
     <?php $pagetitle='データベース登録完了'; require_once('header.php');?>
     <div class="main">
       <div class="wrapper">
-        <h1 class="contact-title">下記内容にて登録完了しました</h1>
-        <div class="container">
-          <div>
-            <label>氏名</label>
-            <p><?php echo $_POST['name']; ?><p>
-          </div>
-          <div>
-            <label>メールアドレス</label>
-            <p><?php echo $_POST['mail']; ?><p>
-          </div>
-          <div>
-            <label>ユーザーID</label>
-            <p><?php echo $_POST['user_id']; ?><p>
-          </div>
-          <div>
-            <label>パスワード</label>
-            <p><?php echo $_POST['password']; ?><p>
-          </div>
+        <form action="#">
+          <h1 class="contact-title">下記内容にて登録完了しました</h1>
+          <div class="container">
+            <div>
+              <label>氏名</label>
+              <p><?php echo $_POST['name']; ?><p>
+            </div>
+            <div>
+              <label>メールアドレス</label>
+              <p><?php echo $_POST['mail']; ?><p>
+            </div>
+            <div>
+              <label>ユーザーID</label>
+              <p><?php echo $_POST['user_id']; ?><p>
+            </div>
+            <div>
+              <label>パスワード</label>
+              <p><?php echo $_POST['password']; ?><p>
+            </div>
 <?php }elseif($dbaction === 1){?>
     <title>データベース変更完了</title>
   </head>
@@ -68,26 +69,28 @@ if(preg_match('/change/',$subject)){
     <?php $pagetitle='データベース変更完了'; require_once('header.php');?>
     <div class="main">
       <div class="wrapper">
-        <h1 class="contact-title">下記内容にて変更完了しました</h1>
-        <div class="container">
-          <div>
-            <label>氏名</label>
-            <p><?php echo $_POST['name']; ?><p>
-          </div>
-          <div>
-            <label>メールアドレス</label>
-            <p><?php echo $_POST['mail']; ?><p>
-          </div>
-          <div>
-            <label>ユーザーID</label>
-            <p><?php echo $_POST['user_id']; ?><p>
-          </div>
-          <div>
-            <label>パスワード</label>
-            <p><?php echo $_POST['password']; ?><p>
-          </div>
+        <form action="#">
+          <h1 class="contact-title">下記内容にて変更完了しました</h1>
+          <div class="container">
+            <div>
+              <label>氏名</label>
+              <p><?php echo $_POST['name']; ?><p>
+            </div>
+            <div>
+              <label>メールアドレス</label>
+              <p><?php echo $_POST['mail']; ?><p>
+            </div>
+            <div>
+              <label>ユーザーID</label>
+              <p><?php echo $_POST['user_id']; ?><p>
+            </div>
+            <div>
+              <label>パスワード</label>
+              <p><?php echo $_POST['password']; ?><p>
+            </div>
 <?php }?>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </body>

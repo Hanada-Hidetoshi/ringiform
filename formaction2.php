@@ -46,39 +46,37 @@ if(preg_match('/change/',$subject)){
     <?php $pagetitle='データベース登録完了'; require_once('header.php');?>
     <div class="main">
       <div class="wrapper">
-      <h1 class="contact-title">下記内容にて登録完了しました</h1>
-        <div class="container">
-          <div>
-            <label>申請者</label>
-            <p><?php echo $_POST['name']; ?><p>
+      <form action="#">
+        <h1 class="contact-title">下記内容にて登録完了しました</h1>
+          <div class="container">
+            <div>
+              <label>申請者</label>
+              <p><?php echo $_POST['name']; ?><p>
+            </div>
+            <div>
+              <label>申請日</label>
+              <p><?php echo $_POST['date']; ?><p>
+            </div>
+            <div>
+              <label>申請部署</label>
+              <p><?php echo $_POST['department']; ?><p>
+            </div>
+            <div>
+              <label>申請タイトル</label>
+              <p><?php echo $_POST['title']; ?><p>
+            </div>
+            <div>
+              <label>申請内容</label>
+              <p><?php echo $_POST['content']; ?><p>
+            </div>
+            <div>
+              <label>添付ファイル</label>
+              <?php if(isset($_SESSION['userfile']['tmp_name'])){?>
+              <p><?php echo $filename; ?></p>
+              <?php }else{?>
+              <p><?php echo "ファイルの添付はありません"; ?></p>
+              <?php }?>
           </div>
-          <div>
-            <label>申請日</label>
-            <p><?php echo $_POST['date']; ?><p>
-          </div>
-          <div>
-            <label>申請部署</label>
-            <p><?php echo $_POST['department']; ?><p>
-          </div>
-          <div>
-            <label>申請タイトル</label>
-            <p><?php echo $_POST['title']; ?><p>
-          </div>
-          <div>
-            <label>申請内容</label>
-            <p><?php echo $_POST['content']; ?><p>
-          </div>
-          <div>
-            <label>添付ファイル</label>
-            <?php if(isset($_SESSION['userfile']['tmp_name'])){?>
-            <p><?php echo $filename; ?></p>
-            <?php }else{?>
-            <p><?php echo "ファイルの添付はありません"; ?></p>
-            <?php }?>
-          </div>
-        </div>
-      </div>
-    </div>
 <?php }elseif($dbaction === 1){?>
     <title>データベース変更完了</title>
   </head>
@@ -86,36 +84,37 @@ if(preg_match('/change/',$subject)){
     <?php $pagetitle='データベース変更完了'; require_once('header.php');?>
     <div class="main">
       <div class="wrapper">
-      <h1 class="contact-title">下記内容にて変更完了しました</h1>
-        <div class="container">
-          <div>
-            <label>申請者</label>
-            <p><?php echo $_POST['name']; ?><p>
-          </div>
-          <div>
-            <label>申請日</label>
-            <p><?php echo $_POST['date']; ?><p>
-          </div>
-          <div>
-            <label>申請部署</label>
-            <p><?php echo $_POST['department']; ?><p>
-          </div>
-          <div>
-            <label>申請タイトル</label>
-            <p><?php echo $_POST['title']; ?><p>
-          </div>
-          <div>
-            <label>申請内容</label>
-            <p><?php echo nl2br($_POST['content']); ?><p>
-          </div>
-          <div>
-            <label>添付ファイル</label>
-            <?php if(isset($_SESSION['userfile']['tmp_name'])){?>
-            <p><?php echo $filename; ?></p>
-            <?php }else{?>
-            <p><?php echo "ファイルの添付はありません"; ?></p>
-            <?php }?>
-          </div>
+      <form action="#"><
+        <h1 class="contact-title">下記内容にて変更完了しました</h1>
+          <div class="container">
+            <div>
+              <label>申請者</label>
+              <p><?php echo $_POST['name']; ?><p>
+            </div>
+            <div>
+              <label>申請日</label>
+              <p><?php echo $_POST['date']; ?><p>
+            </div>
+            <div>
+              <label>申請部署</label>
+              <p><?php echo $_POST['department']; ?><p>
+            </div>
+            <div>
+              <label>申請タイトル</label>
+              <p><?php echo $_POST['title']; ?><p>
+            </div>
+            <div>
+              <label>申請内容</label>
+              <p><?php echo nl2br($_POST['content']); ?><p>
+            </div>
+            <div>
+              <label>添付ファイル</label>
+              <?php if(isset($_SESSION['userfile']['tmp_name'])){?>
+              <p><?php echo $filename; ?></p>
+              <?php }else{?>
+              <p><?php echo "ファイルの添付はありません"; ?></p>
+              <?php }?>
+            </div>
 <?php }elseif($dbaction === 2){?>
     <title>ステータス変更完了</title>
   </head>
@@ -123,42 +122,44 @@ if(preg_match('/change/',$subject)){
     <?php $pagetitle='ステータス変更完了'; require_once('header.php');?>
     <div class="main">
       <div class="wrapper">
-      <h1 class="contact-title">下記内容にて変更完了しました</h1>
-        <div class="container">
-          <div>
-            <label>申請者</label>
-            <p><?php echo $_POST['name']; ?><p>
-          </div>
-          <div>
-            <label>申請日</label>
-            <p><?php echo $_POST['date']; ?><p>
-          </div>
-          <div>
-            <label>申請部署</label>
-            <p><?php echo $_POST['department']; ?><p>
-          </div>
-          <div>
-            <label>申請タイトル</label>
-            <p><?php echo $_POST['title']; ?><p>
-          </div>
-          <div>
-            <label>申請内容</label>
-            <p><?php echo nl2br($_POST['content']); ?><p>
-          </div>
-          <div>
-            <label>添付ファイル</label>
-            <?php if($_POST['userfilefile']){?>
-            <p><?php echo $_POST['userfilefile']; ?></p>
-            <?php }else{?>
-            <p><?php echo "ファイルの添付はありません"; ?></p>
-            <?php }?>
-          </div>
-          <div>
-            <label>ステータス</label>
-            <p><?php echo $_POST['status']; ?><p>
-          </div>
+      <form action="#">
+        <h1 class="contact-title">下記内容にて変更完了しました</h1>
+          <div class="container">
+            <div>
+              <label>申請者</label>
+              <p><?php echo $_POST['name']; ?><p>
+            </div>
+            <div>
+              <label>申請日</label>
+              <p><?php echo $_POST['date']; ?><p>
+            </div>
+            <div>
+              <label>申請部署</label>
+              <p><?php echo $_POST['department']; ?><p>
+            </div>
+            <div>
+              <label>申請タイトル</label>
+              <p><?php echo $_POST['title']; ?><p>
+            </div>
+            <div>
+              <label>申請内容</label>
+              <p><?php echo nl2br($_POST['content']); ?><p>
+            </div>
+            <div>
+              <label>添付ファイル</label>
+              <?php if($_POST['userfilefile']){?>
+              <p><?php echo $_POST['userfilefile']; ?></p>
+              <?php }else{?>
+              <p><?php echo "ファイルの添付はありません"; ?></p>
+              <?php }?>
+            </div>
+            <div>
+              <label>ステータス</label>
+              <p><?php echo $_POST['status']; ?><p>
+            </div>
 <?php }?>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </body>
