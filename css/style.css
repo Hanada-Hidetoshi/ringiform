@@ -67,23 +67,28 @@ header{
   margin:0;
   background:#fff;
   width:100%;
-  height:50px;
+  height:65px;
   padding:0;
   box-shadow: 0 1px 1px 0 rgba(5, 0, 1, 0.2);
   font-size:14px;
 }
-div.header h1{
+div.top p{
+  float:right;
+  text-align:right;
+  font-size:15px;
+}
+div.top h1{
   text-align:center;
   padding-right:15px;
   padding-left:15px;
   font-size:30px;
+  border: #fff 1px solid;
 }
 div.navi{
   text-align:center;
   margin-bottom:50px;
   border: #fff 1px solid;
 }
-
 div ul li{
   display: inline;
   padding: 0 10px;
@@ -143,7 +148,7 @@ div.container div {
   float: right;
 }
 /* 入力実部・反映実部の設定 */
-div.container p {
+div.container p,div.container a {
   width:75%;
   float: right;
   text-align: left;
@@ -298,7 +303,6 @@ input[type=button] {
   background: #ffffff;
   text-shadow: 0px 1px 1px rgba(0,0,0,0.13);
   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.28);
-  -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.28);
   box-shadow: 0px 1px 1px rgba(0,0,0,0.28);
   margin-left: 180px;
   margin-right: 25px;
@@ -309,6 +313,7 @@ input[type=button] + button {
 .error-form {
   border-color: #fb9a93 !important;
 }
+/* テーブルの設定 */
 table{
   border-collapse: collapse;
   border-spacing: 0;

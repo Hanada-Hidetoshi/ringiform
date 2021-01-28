@@ -1,7 +1,12 @@
 <header>
   <div>
     <div class="header">
-      <h1><?php echo $pagetitle ?></h1>
+      <div class="top">
+        <h1><?php echo $pagetitle ?></h1>
+        <?php if($_SESSION['user'] !== ''){?>
+        <p>ログイン中のユーザー：<?php echo $_SESSION['user']; ?></p>
+        <?php } ?>
+      </div>
       <div class = "navi">
         <ul>
           <li><a href="database.php">アカウント情報</a></li>
